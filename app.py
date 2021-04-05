@@ -116,7 +116,7 @@ app.layout = html.Div(children=[
         dcc.Tab(label='Deaths by State', value='tab-2', style=tab_style, selected_style=tab_selected_style),
         dcc.Tab(label='Deaths Map', value='tab-4', style=tab_style, selected_style=tab_selected_style),
         dcc.Tab(label='Data Table', value='tab-5', style=tab_style, selected_style=tab_selected_style),
-        dcc.Tab(label='More Info', value='tab-6', style=tab_style, selected_style=tab_selected_style),
+        dcc.Tab(label='Data Info', value='tab-6', style=tab_style, selected_style=tab_selected_style),
     ]),
     
      html.Div(style = {#'width': '80%', 'height': '80%', 
@@ -280,16 +280,17 @@ def render_content(tab):
                             
                       ),
             
-            daq.Slider(
+            dcc.Slider(
                 id = 'year',
                 min = 2014,
                 max = 2021,
                 value = 2017,
-                marks={str(i): '{}'.format(str(i)) for i in
+                marks={str(i): '{}'.format(str(i))for i in
                        [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]},
-                handleLabel={"showCurrentValue": True,"label": " "},
-                size=800,
-                color = 'cf9696',
+               # handleLabel={"showCurrentValue": True,"label": " "},
+               # size=1000,
+              #  color = 'cf9696',
+                #style = {'margin-left': '20px'},
                 className = 'box'
                 
                 )
@@ -303,7 +304,7 @@ def render_content(tab):
                 id='table',
                 columns=[{"name": i, "id": i} for i in dataset.iloc[:, 1:].columns],
                 data=dataset.to_dict('records'),
-                style_table={'overflowX': 'auto', 'max-height': '790px'},
+                style_table={'overflowX': 'auto', 'max-height': '790px', 'border-radius': '10px'},
                 style_cell={
         # all three widths are needed
                 'minWidth': '180px', 'width': '180px', 'maxWidth': '180px',
@@ -313,7 +314,7 @@ def render_content(tab):
                 'padding': '5px',
                 'font-family':"Calibri (Body)"},
                 style_header={
-                    'backgroundColor': '#F0AB9E',
+                    'backgroundColor': '#cf9696',
                     'fontWeight': 'bold', 
                     'fontSize': '15px',
                     'overflow': 'hidden',
@@ -391,7 +392,7 @@ def render_content(tab):
                             
                         **Data Published By:**     National Center for Health Statistics
                             
-                        **For More Details Visit:** ['https://data.cdc.gov/NCHS/Weekly-Counts-of-Deaths-by-State-and-Select-Causes/3yf8-kanr'] 
+                        **For More Details Visit:** https://data.cdc.gov/NCHS/Weekly-Counts-of-Deaths-by-State-and-Select-Causes/3yf8-kanr
                         ''', style = {"margin-left": '30px'}),
                         
                     html.P('Downloads:',
@@ -403,7 +404,7 @@ def render_content(tab):
                             
                         
                      dcc.Markdown('''
-                        **Download Data From the Source:** [https://data.cdc.gov/NCHS/Weekly-Counts-of-Deaths-by-State-and-Select-Causes/3yf8-kanr']
+                        **Download Data:** https://github.com/MD2007/DVProject2_GroupAL
                          ''', style = {"margin-left": '30px'}),
                          
                          
