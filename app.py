@@ -6,7 +6,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 from dash.dependencies import Input, Output
-import dash_daq as daq
 ############################################################################################################################################################
 
 
@@ -287,10 +286,6 @@ def render_content(tab):
                 value = 2017,
                 marks={str(i): '{}'.format(str(i))for i in
                        [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]},
-               # handleLabel={"showCurrentValue": True,"label": " "},
-               # size=1000,
-              #  color = 'cf9696',
-                #style = {'margin-left': '20px'},
                 className = 'box'
                 
                 )
@@ -434,10 +429,10 @@ def lineplot(disease, time, agg):
     gg = gg.set_index('Week Ending Date')
     df1 = gg.groupby(pd.Grouper(freq="M")).mean().reset_index()
     data_line = []
-    colory = ['rgb(0, 147, 146)','rgb(241, 234, 200)','rgb(250, 235, 162)',
-                      'rgb(255, 226, 87)','rgb(229, 185, 173)','rgb(69, 176, 175)','rgb(114, 170, 161)','rgb(130, 181, 135)',
-                  'rgb(177, 199, 179)','rgb(207, 250, 211)', 'rgb(250, 167, 145)','rgb(217, 137, 148)',
-                          'rgb(208, 88, 126)', 'rgb(250, 167, 145)','rgb(217, 137, 148)','rgb(250, 167, 145)','rgb(217, 137, 148)']
+    colory = ['rgb(0, 147, 146)','rgb(69, 176, 175)','rgb(114, 170, 161)','rgb(130, 181, 135)',
+'rgb(177, 199, 179)','rgb(207, 250, 211)', 'rgb(241, 234, 200)','rgb(250, 235, 162)',
+'rgb(255, 226, 87)','rgb(229, 185, 173)','rgb(250, 167, 145)','rgb(217, 137, 148)',
+'rgb(208, 88, 126)', 'rgb(241, 234, 200)','rgb(250, 235, 162)']
 
     for i in range(len(disease)):
         if time == 0:
