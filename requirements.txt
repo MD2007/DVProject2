@@ -1,7 +1,8 @@
 gunicorn
 plotly
 pandas
-dash-core-component
+dash-core-components
 dash-html-components
+dash-daq
 dash-table
 dash
