@@ -429,10 +429,10 @@ def lineplot(disease, time, agg):
     gg = gg.set_index('Week Ending Date')
     df1 = gg.groupby(pd.Grouper(freq="M")).mean().reset_index()
     data_line = []
-    colory = ['rgb(0, 147, 146)','rgb(69, 176, 175)','rgb(114, 170, 161)','rgb(130, 181, 135)',
+    colory = ['orangered','rgb(0, 147, 146)','rgb(250, 235, 162)','rgb(250, 167, 145)','violet','rgb(69, 176, 175)', 'maroon','rgb(114, 170, 161)','rgb(130, 181, 135)',
 'rgb(177, 199, 179)','rgb(207, 250, 211)', 'rgb(241, 234, 200)','rgb(250, 235, 162)',
-'rgb(255, 226, 87)','rgb(229, 185, 173)','rgb(250, 167, 145)','rgb(217, 137, 148)',
-'rgb(208, 88, 126)', 'rgb(241, 234, 200)','rgb(250, 235, 162)']
+'rgb(255, 226, 87)','rgb(229, 185, 173)','rgb(217, 137, 148)',
+'rgb(208, 88, 126)']
 
     for i in range(len(disease)):
         if time == 0:
